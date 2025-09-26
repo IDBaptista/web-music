@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Lysten</title>
+    <link rel="stylesheet" href="/static/style/estilo.css" />
+  </head>
+  <body>
+    <div class="geral">
+      <img class="lysten" src="../FontEnd/assets/lysten.png" alt="">
+      <div class="notas">
+        <img class="tres" src="../FontEnd/assets/tres.png" alt="">
+        <img src="/static/static/assets/um.png" alt="" class="um">
+        <img src="/static/static/assets/dois.png" alt="" class="dois">
+        <img src="/static/static/assets/curvado.png" alt="" class="curvado">
+        <img src="/static/assets/um 1.png" alt="" class="umm">
+      </div>
+
+      <div class="server-input">
+        <input
+          id="serverUrl"
+          type="url"
+          inputmode="url"
+          placeholder="URL do servidor Flask (ex.: http://SEU-IP)"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="connectBtn" type="button">Conectar</button>
+      </div>
+      
+      <div class="menu-hamburguer">
+        <input type="checkbox" id="menu-toggle" />
+        <label border-ra for="menu-toggle" class="menu-icon">&#9776;</label>
+        <nav class="menu">
+          <ul>
+            <li>
+              <a id="topLink" href="#">Mais tocadas</a>
+            </li>
+            <li>
+              <a id="historyLink" href="#">Historico de Faixas</a>
+            </li>
+          </ul>
+
+        </nav>
+      </div>
+
+      <div class="musica"></div>
+    </div>
+      <main>
+        <div id="historyPanel">
+          <h3>Histórico</h3>
+          <ul id="historyList"></ul>
+        </div>
+
+        
+    
+        <div id="topPanel">
+          <h3>Mais Tocadas</h3>
+          <ul id="topList"></ul>
+        </div>
+        <div class="player">
+            <img class="fita" src="/static/assets/fita.png" alt="Fita Cassete">
+            <div id="nowPlaying"> Nenhuma música está tocando</div>
+
+            <div class="controles">
+                <div class="botoes-controles">
+                    <img src="/static/assets/retroceder.png" onclick="retroceder10Segundos()" alt="Retroceder" id="retroceder-btn" class="retroceder">
+                    
+                    <div class="volume-btn">
+                      <img src="/static/assets/volume.png" id="volume" onclick="" alt=""> 
+                      <input type="range" id="volume-slider" min="0" max="2" step="0.01" value="2"> <!-- Usamos o type="range" para criar a barra deslizante de volume -->
+                    </div>
+
+                    <div id="play-pause-btn" class="play-pause-btn">
+                        <img id="play-btn" src="/static/assets/play.png" alt="Play" class="play-img">
+                        <img id="pause-btn" src="/static/assets/pause.png" alt="Pause" class="pause-img">
+                    </div>
+                    
+                    <img src="/static/assets/progredir.png" id="progredir-btn" onclick="progredir10Segundos()" alt="Progredir" class="progredir">
+                </div>
+                <div class="barra-progresso-container">
+                    <span id="time">0:00</span>
+                    <input type="range" id="progressotempo" value="0" min="0" max="100">
+                </div>
+            </div>
+            
+            <audio id="audio" preload="none"></audio>
+        </div>
+    </main>
+    <img src="/static/assets/notas.png" alt="" class="nota">
+    <footer>
+      <div id="status" aria-live="polite"></div>
+      <ul id="songList"></ul>
+    </footer>
+
+    <h1></h1>
+    <script src="app.js" defer></script>
+  </body>
+</html>
